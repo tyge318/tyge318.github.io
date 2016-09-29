@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Franco&#39;s Geeky Stuff by tyge318</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{base}}/stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{{base}}/stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{base}}/stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Franco&#39;s Geeky Stuff</h1>
+      <h2 class="project-tagline">It&#39;s all about Geeks.</h2>
+	
+	<table>
+		<tr>
+	      {% for p in site.pages %}
+			{% if p.url contains site.baseurl %}
+			  {% assign p_url_parts = p.url | split: '/' %}
+			  {% assign filename = p_url_parts | last %}
+			    {% unless filename contains  '.' %}
+			      <td>
+			       <h2><a class="navigation-item" href="{{ p.url }}">{{ p.title }}</a></h2>
+			      </td>
+				{% endunless %}
+			 {% endif %}  
+	      {% endfor %}
+		</tr>
+	</table>
+    </section>
+	

@@ -1,0 +1,8 @@
+---
+layout: default
+title: Home 
+---
+<h3>
+<a id="welcome-to-francos-geeky-stuff" class="anchor" href="#welcome-to-francos-geeky-stuff" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to Franco's Geeky Stuff</h3>
+
+Yes, it's all about geeky stuff. I've been preparing for coding interviews so I did much coding exercise recently. Despite saving up the codes, it's helpful to document the "thoughts," that how I approached the problem, as future reference. There will also be material review on algorithm, data structures or AI. In general, It's all about Geeks.
