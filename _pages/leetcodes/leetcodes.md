@@ -1,9 +1,9 @@
 ---
-layout: default
+layout: leetcode
 title: Leetcodes
 permalink: "/leetcodes/"
 ---
-<h2><a id="subtitle" class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>{{ page.title }}</h2>
+<!--<h2><a id="subtitle" class="anchor" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>{{ page.title }}</h2>-->
 <ul>
   {% for post in site.categories.leetcode limit: 10 %}
 	<li>

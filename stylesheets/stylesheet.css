@@ -7,7 +7,8 @@ body {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: #606c71; }
+  color: #606c71; 
+}
 
 a {
   color: #1e6bb8;
@@ -98,12 +99,26 @@ table, th, td {
   font-weight: normal;
   opacity: 0.7; }
 
+/*
+#nav_bar {
+  margin: 0.5rem;
+  width: 17rem;
+  float: left;
+  font-weight: normal;
+  color: #000000;
+}
+
+.navbar-fixed {
+  top: 0;
+  position: fixed;
+}
+
 .navigation-item {
   font-weight: normal;
   color: #ffffff;
   opacity: 0.8;
 }
-
+*/
 @media screen and (min-width: 64em) {
   .project-tagline {
     font-size: 1.25rem; } }

@@ -1,14 +1,32 @@
-<nav class="nav-primary" role="navigation" >
+<script src="//code.jquery.com/jquery-1.10.2.js" type="text/javascript" charset="utf-8"></script>
+<script>
+  $(window).scroll(function () {
+      //if you hard code, then use console
+      //.log to determine when you want the 
+      //nav bar to stick.  
+      console.log($(window).scrollTop())
+	var headerHeight = $('#header').outerHeight();
+    if ($(window).scrollTop() > headerHeight) {
+      $('#nav_bar').addClass('navbar-fixed');
+    }
+    else {
+      $('#nav_bar').removeClass('navbar-fixed');
+    }
+  });
+</script>
+<!--
+<nav id="nav_bar" role="navigation" >
+	<h3>Menu</h3>
     <ul>
-    {% for node in site.pages %}
-      {% if node.url contains base_url %}
-        {% assign node_url_parts = node.url | split: '/' %}
-        {% assign node_url_parts_size = node_url_parts | size %}
-        {% assign filename = node_url_parts | last %}
-        {% if url_parts_size == node_url_parts_size and filename != 'index.html' %}
-          <li><a href='{{node.url}}'>{{node.title}}</a></li>
-        {% endif %}
-      {% endif %}
+    {% for post in site.categories.leetcode %}
+	    {% capture day %}{{ post.date | date: '%m%d%Y' }}{% endcapture %}
+	    {% capture nday %}{{ post.next.date | date: '%m%d%Y' }}{% endcapture %}
+
+	    {% if day != nday %}
+	        <h5 id="menu-toggle" class="date">{{ post.date | date: "%A, %B %e, %Y" }}</h5>
+	    {% endif %} 
+	    <a href="{{ post.url }}">{{ post.title }}</a>
+	    <hr>
     {% endfor %}
     </ul>
-</nav>
+</nav> -->
