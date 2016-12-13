@@ -24,3 +24,5 @@ highlighter: rouge
 theme: minima
 include: ["_pages"]
 permalink: /:title/
+gems:
+  - jekyll-gist
