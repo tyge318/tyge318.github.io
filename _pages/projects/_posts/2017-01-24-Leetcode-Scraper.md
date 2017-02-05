@@ -15,28 +15,27 @@ Well, there's not much difference in the case of logging in to Leetcode. I would
 Here I am going to documented what to do after you logged in to your Leetcode.  
 
 ## Step 1: See the list of all your submissions.
-1. You can find a list of all your previous submissions on [https://leetcode.com/submissions/](https://leetcode.com/submissions/)  
+1. 	You can find a list of all your previous submissions on [https://leetcode.com/submissions/](https://leetcode.com/submissions/)  
 ![Leetcode Submission Page](/images/Leetcode-Scraper/Leetcode-submission-page.png)
 It would probably take tens of pages (in my cases, 72) to show all your previous submissions.  
 By appending page number to the URL, you can directly access those pages.   
 Note that the URL [https://leetcode.com/submissions/](https://leetcode.com/submissions/) without any page number is equivalent to [https://leetcode.com/submissions/1/](https://leetcode.com/submissions/1/))  
-2. We need a **page_count** variable to trace where we are at the submission page, and we will loop through all pages until the URL becomes invalid or no more submissions available.  
-{% highlight python %}
-page_count = 1
-while True:
-	# Test if we got error response code
-	# Test if we got no more submissions available.
-	
-	# Extract code for each submission.
-	page_count += 1
-{% endhighlight %}
-To test if we got error code, create the URL, send a GET request to server and check if the responsed status code is valid (200).
+2. 	We need a **page_count** variable to trace where we are at the submission page, and we will loop through all pages until the URL becomes invalid or no more submissions available.  
+	<!-- language: python -->
+	page_count = 1
+	while True:
+		# Test if we got error response code
+		# Test if we got no more submissions available.
+		
+		# Extract code for each submission.
+		page_count += 1
+3. 	To test if we got error code, create the URL, send a GET request to server and check if the responsed status code is valid (200).
 {% highlight python %}
 result = session_requests.get(URL+str(page_count)+'/', headers = dict(referer = URL+str(page_count)+'/'))
 if result.status_code != 200:   #Terminate if any wrong status is returned
 	break
 {% endhighlight %}  
-3. Use similar technique as in the [Scraping Tutorial](https://kazuar.github.io/scraping-tutorial/), select the row of target submission and right click "inspect element" to see its source code.
+4. 	Use similar technique as in the [Scraping Tutorial](https://kazuar.github.io/scraping-tutorial/), select the row of target submission and right click "inspect element" to see its source code.
 ![Leetcode Table Source Code](/images/Leetcode-Scraper/Leetcode-Table-SourceCode.png)
 Each submission is a row in the talbe, so use `tree.findall()` to extract all of them.  
 Here `contents` is a list, and when it's empty, we know there's no more submissions available.  
@@ -48,7 +47,7 @@ if len(contents) == 0:
 {% endhighlight %}
 
 ## Step 2: Scrape code from each submission.  
-1. Now we could loop through each submission.  We want to organize all the code by problem since we could have multiple submissions to the same one. We also want only those **Accepted** code, and need to know which langauge a submission used.  
+1. 	Now we could loop through each submission.  We want to organize all the code by problem since we could have multiple submissions to the same one. We also want only those **Accepted** code, and need to know which langauge a submission used.  
 Therefore, we need to further extract the following info for each submission:
 - Problem link: to get problem number and problem title.
 - Code link: to get the submitted code.
@@ -60,7 +59,7 @@ problem_link = row[1][0].attrib['href']
 code_link = row[2][0].attrib['href']
 extension = row[4].text
 {% endhighlight %}  
-2. Skip invalid submissions and get problem title.  
+2. 	Skip invalid submissions and get problem title.  
 {% highlight python %}
 if status != 'Accepted':
     continue
@@ -69,7 +68,7 @@ result = session_requests.get(BASE+problem_link, headers = dict(referer = BASE+p
 tree = html.fromstring(result.content)      
 title = tree.find(".//h3").text.strip()
 {% endhighlight %}  
-3. Your submitted code is stored in a JavaScript dictionary object name `pageData`.   
+3. 	Your submitted code is stored in a JavaScript dictionary object name `pageData`.   
 To get that, send a GET request with User-Agent header, and locate the script tag with `tree.xpath()` function.  
 Note that the return string contains unicode escape characters so you need to add `.decode('unicode-escape')` to correctly decode it.  
 {% highlight python %}
@@ -77,7 +76,7 @@ result = session_requests.get(BASE+code_link, headers = {"User-Agent": "Mozilla/
 tree = html.fromstring(result.content)
 codeScript = tree.xpath('//script[contains(., "pageData")]/text()')[0].decode('unicode-escape') #need to handle the uicode escape characters
 {% endhighlight %}  
-4. Examine the returned `codeScript` string, you could locate the code part and substring it.
+4. 	Examine the returned `codeScript` string, you could locate the code part and substring it.
 {% highlight python %} 
 begin, end = codeScript.find('class Solution {'), codeScript.find('\',\n  editCodeUrl: ')   #locate the code part
 codeStr = codeScript[begin:end] #substring the code part
