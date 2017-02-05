@@ -93,20 +93,20 @@ Note that the return string contains unicode escape characters so you need to ad
 ## Step 3: Output to file:
 This part is easy. Write a function that takes title, code, and extension as arguments and do file I/O for you. Here's my code. 
 
-	```python
-	def outputToFile(title, codeStr, extension, rootDir):
-		currentDir = os.path.join(rootDir, title)	
-		if not os.path.exists(currentDir):
-			os.makedirs(currentDir) 
-		count = 0
-		for name in os.listdir(currentDir):
-			if any(ext in name for ext in validExtension):
-				count += 1
-		fileName = title.replace(' ', '_')
-		extension = 'py' if extension == 'python' else extension    #fix python extension. You might need to fix extension for other langauge.
-		with open(currentDir+'/'+fileName+'_'+str(count+1)+'.'+extension, "w") as f:
-			f.write(codeStr)
-	```
+```python
+def outputToFile(title, codeStr, extension, rootDir):
+	currentDir = os.path.join(rootDir, title)	
+	if not os.path.exists(currentDir):
+		os.makedirs(currentDir) 
+	count = 0
+	for name in os.listdir(currentDir):
+		if any(ext in name for ext in validExtension):
+			count += 1
+	fileName = title.replace(' ', '_')
+	extension = 'py' if extension == 'python' else extension    #fix python extension. You might need to fix extension for other langauge.
+	with open(currentDir+'/'+fileName+'_'+str(count+1)+'.'+extension, "w") as f:
+		f.write(codeStr)
+```
 You can get the complete code on my GitHub repository [here](https://github.com/tyge318/LeetcodeToGit). Hope this short tutorial helps.  
 <!--more-->
 
