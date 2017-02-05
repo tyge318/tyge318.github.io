@@ -13,6 +13,7 @@ Maybe it's easy for someone familiar with web technologies, but not for me; so I
 It gives step-by-step instructions on how to do get you login to bitbucket using Python.  
 Well, there's not much difference in the case of logging in to Leetcode. I would assume anyone who tries to accomplish this task should be able to figure it out on there own.  
 Here I am going to documented what to do after you logged in to your Leetcode.  
+
 ## Step 1: See the list of all your submissions.
 1. You can find a list of all your previous submissions on [https://leetcode.com/submissions/](https://leetcode.com/submissions/)  
 ![Leetcode Submission Page](/images/Leetcode-Scraper/Leetcode-submission-page.png)
