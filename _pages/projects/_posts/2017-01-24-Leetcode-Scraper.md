@@ -12,14 +12,13 @@ So there's a problem: **you need to login in order to access all your previous s
 Maybe it's easy for someone familiar with web technologies, but not for me; so I googled a bit and found a tutorial [here](https://kazuar.github.io/scraping-tutorial/).  
 It gives step-by-step instructions on how to do get you login to bitbucket using Python.  
 Well, there's not much difference in the case of logging in to Leetcode. I would assume anyone who tries to accomplish this task should be able to figure it out on there own.  
-Here I am going to documented what to do after you logged in to your Leetcode.
+Here I am going to documented what to do after you logged in to your Leetcode.  
 ## Step 1: See the list of all your submissions.
 1. You can find a list of all your previous submissions on [https://leetcode.com/submissions/](https://leetcode.com/submissions/)  
 ![Leetcode Submission Page](/images/Leetcode-Scraper/Leetcode-submission-page.png)
 It would probably take tens of pages (in my cases, 72) to show all your previous submissions.  
 By appending page number to the URL, you can directly access those pages.   
 Note that the URL [https://leetcode.com/submissions/](https://leetcode.com/submissions/) without any page number is equivalent to [https://leetcode.com/submissions/1/](https://leetcode.com/submissions/1/))  
-
 2. We need a **page_count** variable to trace where we are at the submission page, and we will loop through all pages until the URL becomes invalid or no more submissions available.  
 {% highlight python %}
 page_count = 1
@@ -36,7 +35,6 @@ result = session_requests.get(URL+str(page_count)+'/', headers = dict(referer = 
 if result.status_code != 200:   #Terminate if any wrong status is returned
 	break
 {% endhighlight %}  
-
 3. Use similar technique as in the [Scraping Tutorial](https://kazuar.github.io/scraping-tutorial/), select the row of target submission and right click "inspect element" to see its source code.
 ![Leetcode Table Source Code](/images/Leetcode-Scraper/Leetcode-Table-SourceCode.png)
 Each submission is a row in the talbe, so use `tree.findall()` to extract all of them.  
@@ -48,7 +46,7 @@ if len(contents) == 0:
     break
 {% endhighlight %}
 
-## Step 2: Scrape code from each submission.
+## Step 2: Scrape code from each submission.  
 1. Now we could loop through each submission.  We want to organize all the code by problem since we could have multiple submissions to the same one. We also want only those **Accepted** code, and need to know which langauge a submission used.  
 Therefore, we need to further extract the following info for each submission:
 - Problem link: to get problem number and problem title.
@@ -60,7 +58,7 @@ status = getLeafText(row[2])	#getLefText() is a recursive function that returns 
 problem_link = row[1][0].attrib['href']	
 code_link = row[2][0].attrib['href']
 extension = row[4].text
-{% endhighlight %}
+{% endhighlight %}  
 2. Skip invalid submissions and get problem title.  
 {% highlight python %}
 if status != 'Accepted':
@@ -77,7 +75,7 @@ Note that the return string contains unicode escape characters so you need to ad
 result = session_requests.get(BASE+code_link, headers = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.103 Safari/537.36"})
 tree = html.fromstring(result.content)
 codeScript = tree.xpath('//script[contains(., "pageData")]/text()')[0].decode('unicode-escape') #need to handle the uicode escape characters
-{% endhighlight %}
+{% endhighlight %}  
 4. Examine the returned `codeScript` string, you could locate the code part and substring it.
 {% highlight python %} 
 begin, end = codeScript.find('class Solution {'), codeScript.find('\',\n  editCodeUrl: ')   #locate the code part
