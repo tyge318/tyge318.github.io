@@ -20,7 +20,9 @@ url: "http://tyge318.github.io" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
-highlighter: rouge
+kramdown:
+  input: GFM
+  highlighter: rouge
 theme: minima
 include: ["_pages"]
 permalink: /:title/

@@ -9,7 +9,6 @@ body {
   line-height: 1.5;
   color: #606c71; 
 }
-
 a {
   color: #1e6bb8;
   text-decoration: none; }
@@ -178,7 +177,8 @@ table, th, td {
   overflow: auto;
   font-size: 0.9rem;
   line-height: 1.45;
-  border-radius: 0.3rem; }
+  border-radius: 0.3rem; 
+  background: black; }
 .main-content pre code, .main-content pre tt {
   display: inline;
   max-width: initial;
