@@ -1,7 +1,7 @@
 {% include head.html %}
 <head>
     <meta charset="utf-8">
-    <link media="all" rel="stylesheet" type="text/css" href="../stylesheets/github.css" />
+    <link media="all" rel="stylesheet" type="text/css" href="../stylesheets/vim.css" />
 </head>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="/js/infinite-jekyll.js"></script>
@@ -9,6 +9,13 @@
 <section class="main-content">
 <h2>{{page.title}}</h2>
 {{content}}
+<div
+    class="fb-like"
+    data-share="true"
+    data-width="450"
+    data-show-faces="true">
+</div><br/>
+<div class="fb-comments" data-href="https://tyge318.github.io/{{page.title}}/" data-numposts="10"></div>
 </section>
 <div class="infinite-spinner"></div>
 {% include foot.html %}

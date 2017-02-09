@@ -3,8 +3,8 @@ layout: default
 title: About
 permalink: "/about/"
 ---
-## Franco Chen
-Franco Chen is from Taiwan, and he just graduated as a CS master student from University of Southern California. He is actively seeking for a job right now.  
+## Franco Chen  
+Franco Chen is from Taiwan, and he just graduated as a CS master student from University of Southern California. He is actively seeking for a job right now. (See his [Resume in PDF](../data/MingLungChen+USC.pdf))  
 
 #### Education
 - B.S. Degree from National Changhua University of Education, Taiwan.

@@ -1,3 +1,4 @@
+@import url(vim.css)
 * {
   box-sizing: border-box; }
 
@@ -17,8 +18,8 @@ a {
 table, th, td {
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: 1rem;
-	padding-right: 1rem;
+/*	padding-left: 1rem;
+	padding-right: 1rem; */
 }
 
 .btn {
@@ -141,54 +142,38 @@ table, th, td {
   color: #159957; }
 .main-content p {
   margin-bottom: 1em; }
-.main-content code {
-  padding: 2px 4px;
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  font-size: 0.9rem;
-  color: #383e41;
-  background-color: #f3f6fa;
-  border-radius: 0.3rem; }
+
 .main-content pre {
-  padding: 0.8rem;
+  padding: 0.3rem; 
+  padding-left: 0.5rem;
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   font: 1rem Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  color: #567482;
+  color: #ffffff;
   word-wrap: normal;
   background-color: #f3f6fa;
-  border: solid 1px #dce6f0;
-  border-radius: 0.3rem; }
-  .main-content pre > code {
-    padding: 0;
-    margin: 0;
-    font-size: 0.9rem;
-    color: #567482;
-    word-break: normal;
-    white-space: pre;
-    background: transparent;
-    border: 0; }
-.main-content .highlight {
-  margin-bottom: 1rem; }
-  .main-content .highlight pre {
-    margin-bottom: 0;
-    word-break: normal; }
+/*  border: solid 1px #dce6f0; */
+/*  border-radius: 0.3rem;  */}
+  .main-content pre lineno { 
+    color: #ccc; 
+    display:inline-block; 
+    padding: 0 5px; 
+    border-right:1px solid #ccc;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 .main-content .highlight pre, .main-content pre {
-  padding: 0.8rem;
+/*  padding: 0.8rem; */
   overflow: auto;
   font-size: 0.9rem;
   line-height: 1.45;
-  border-radius: 0.3rem; 
+/*  border-radius: 0.3rem; */
   background: black; }
-.main-content pre code, .main-content pre tt {
-  display: inline;
-  max-width: initial;
-  padding: 0;
-  margin: 0;
-  overflow: initial;
-  line-height: inherit;
-  word-wrap: normal;
-  background-color: transparent;
-  border: 0; }
+
   .main-content pre code:before, .main-content pre code:after, .main-content pre tt:before, .main-content pre tt:after {
     content: normal; }
 .main-content ul, .main-content ol {
@@ -210,9 +195,9 @@ table, th, td {
   word-break: keep-all; }
   .main-content table th {
     font-weight: bold; }
-  .main-content table th, .main-content table td {
+/*  .main-content table th, .main-content table td {
     padding: 0.5rem 1rem;
-    }
+    } */
 .main-content dl {
   padding: 0; }
   .main-content dl dt {

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Leetcode Scraper
-categories: [project]
+categories: project
 excerpt_separator: <!--more-->
 ---
 # How to backup all your Leetcode submissions to a local computer?
@@ -86,8 +86,9 @@ Note that the return string contains unicode escape characters so you need to ad
 4. 	Examine the returned `codeScript` string, you could locate the code part and substring it.
 
 	```python 
-	begin, end = codeScript.find('class Solution {'), codeScript.find('\',\n  editCodeUrl: ')   #locate the code part
+	begin, end = codeScript.find('submissionCode: \''), codeScript.find('\',\n  editCodeUrl: ')   #locate the code part
 	codeStr = codeScript[begin:end] #substring the code part
+	codeStr = codeStr.replace('submissionCode: \'', '')
 	```
 
 ## Step 3: Output to file:
@@ -109,11 +110,3 @@ def outputToFile(title, codeStr, extension, rootDir):
 ```
 You can get the complete code on my GitHub repository [here](https://github.com/tyge318/LeetcodeToGit). Hope this short tutorial helps.  
 <!--more-->
-
-<div
-	class="fb-like"
-	data-share="true"
-	data-width="450"
-	data-show-faces="true">
-</div>
-<div class="fb-comments" data-href="https://tyge318.github.io/{{page.title}}/" data-numposts="10"></div>
