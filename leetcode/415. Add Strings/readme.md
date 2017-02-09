@@ -1,2 +1,2 @@
 Use `StringBuilder`. The `reverse()` function can easily reverse the string for digit alignment and natural ordering. No trick at all.  
-Time Complexity: $$O(\max(m, n)))$$ where $m, n$ is the length of each number.
+Time Complexity: $$O(\max(m, n)))$$ where $$m, n$$ is the length of each number.
