@@ -1,0 +1,3 @@
+Use a `Map` to track the reachable stones. For each reachable stone, a `Set` structure tracks its previos stone (i.e. which stones can jump to this one?). The difference between current stone position and previous stone position gives us enough information to extend the reachable map.  
+Iterate through left to right each stone, extend the reachable map until we reach the destination/target.  
+Time Complexity: $$O(n)$$

@@ -1,0 +1,3 @@
+Go through each bit, from MSB to LSB to generate candidates with only first k bits considered. (`j & mask` operation keeps the first k bits and sets the rest bits 0.)  
+Next, use OR operation to generate a `temp` variable whose $$k^{th}$$ bit is set. This will be the maximum value we can get with $$k^{th}$$ bit set. Thus, ff there exsits two candidates `A` and `B` whose XOR equals `temp`, we know `temp` will be the maximum. Otherwise, we need to count on the rest bits.  
+Time Complexity: $$O(n)$$  

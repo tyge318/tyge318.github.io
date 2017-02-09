@@ -1,0 +1,3 @@
+This one is very similar to [316. Remove Duplicate Letters](../316.-Remove-Duplicate-Letters/) so the key to solve this is to use **stack**.  
+To generate the minimum number, we need to ensure only smaller number are kept in the result string while maintaining the relative order at the same time. Keep in mind that we need to remove **exactly $$k$$** digits, which is equivalent to **keep $$r$$ digits where $$n = $$`nums.length()` and $$r = n - k$$**. Hence we should stop popping out more digit in the inner `while` loop when length of the result string is not greater than $$r$$.  
+Time Complexity: $$O(n)$$

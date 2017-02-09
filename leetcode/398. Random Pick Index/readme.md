@@ -1,0 +1,4 @@
+My first idea was to use a global hash map to track what indices each number occurs at. This exceeded the memory limit.
+We got no choice but to do it in the run: whenever a query is sent, we loop through the `nums` array and filter out those indices that have the target number. Keep those indices in a list called `candidates`, and then randomly pick one from the list as the return value.
+A little optimization: We could cache the last number we were asked to pick. If the next time we are asked to pick the same number, it can save us from looping through the array again.  
+Time Complexity: $$O(kn)$$ if k `pick()` operations are called.

@@ -12,6 +12,11 @@ ruby RUBY_VERSION
 gem "jekyll", "3.2.1"
 
 gem 'jekyll-gist'
+gem 'pygments.rb'
+
+group :jekyll_plugins do
+	gem "redcarpet"
+end
 
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 gem "minima"

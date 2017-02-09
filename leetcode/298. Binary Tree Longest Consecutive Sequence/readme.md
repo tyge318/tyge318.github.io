@@ -1,0 +1,2 @@
+Recursively check if the value of current node and its left/right child node satisfies the consecutive condition. If not, memorize current length and reset length to 1, otherwise, pass the length to next recursive call. Also memorize current length when either one of the child node is null.  
+Time Complexity: <span class="inlinecode">$O(n)$</span> (Need to visit each node.)

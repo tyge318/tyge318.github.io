@@ -1,0 +1,2 @@
+Rather than testing your coding ability, this one is more like testing your **reading** ability. If you do go through the problem description carefully, this shouldn't be hard at all. Just simple bit manipulation to make sure it satisfies the UTF-8 standard.  
+Time Complexity: $$O(n)$$. 

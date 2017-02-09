@@ -31,15 +31,19 @@ GEM
       rb-inotify (~> 0.9, >= 0.9.7)
     mercenary (0.3.6)
     minima (1.2.0)
+    multi_json (1.12.1)
     multipart-post (2.0.0)
     octokit (4.6.2)
       sawyer (~> 0.8.0, >= 0.5.3)
     pathutil (0.14.0)
       forwardable-extended (~> 2.6)
     public_suffix (2.0.4)
+    pygments.rb (1.1.1)
+      multi_json (>= 1.0.0)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    redcarpet (3.4.0)
     rouge (1.11.1)
     safe_yaml (1.0.4)
     sass (3.4.22)
@@ -54,9 +58,11 @@ DEPENDENCIES
   jekyll (= 3.2.1)
   jekyll-gist
   minima
+  pygments.rb
+  redcarpet
 
 RUBY VERSION
-   ruby 2.0.0p648
+   ruby 2.5.0p-1
 
 BUNDLED WITH
-   1.13.1
+   1.14.3

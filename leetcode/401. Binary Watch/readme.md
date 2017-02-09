@@ -1,0 +1,5 @@
+If hour takes $$i$$ set bits then minute takes $$j = num-i$$ set bits.  
+Valid number are 0-59, so we first count the number of set bits for these numbers and keep this information in a map. Then we try all combinations of $$i$$ and $$j$$, get all possible numbers with $$i$$ set bits for hour and $$j$$ set bits for minutes. (Remember to exclude invalid case such as hour $$\ge 12$$ or number $$\ge 60$$.)  
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Binary_clock_samui_moon.jpg" width="400"/>
+
+Time Complexity: Actually the time complexity analysis doesn't make too much sense here because the input $$n$$ can't be too large (at most 10), and we also need to exclude invalid cases. But we could get a rough idea by the [Binomial Theorem](https://en.wikipedia.org/wiki/Binomial_theorem): It would roughly be the coefficient sum for the expansion of $$(hour+minute)^n$$, which is $$O(2^n)$$. 

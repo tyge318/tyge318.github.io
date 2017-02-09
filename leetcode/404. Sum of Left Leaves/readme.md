@@ -1,0 +1,2 @@
+We can iteratively solve this problem by iterate through each tree node with a stack: whenever we poll a node from the stack, we check the existance of its left and right child. If the left child has no children, it's the left leaf node and we need to add the value of this left child node to our answer.
+Time Complexity: $$O(n)$$

@@ -13,11 +13,13 @@ def main():
 			print 'Getting content for \"'+f+'\"...'
 			content = "---\nlayout: leetcode\n"
 			content += ('title: ' + title + '\n')
-			content += 'categories: leetcode\nexcerpt_separator: <!--more-->\n---\n'
+			content += 'categories: leetcode\n---\n'
 			
 			with open(os.path.join(subdir, f), 'r') as contentFile:
-				content += contentFile.read()	
-			content += '\n<!--more-->\n'
+				temp = preprocess(contentFile.read())
+				content += temp	
+			#content += '\n<!--more-->\n'
+			content += '\n'
 			hasCode = False
 			for code in os.listdir(subdir):
 				if '.md' in code:
@@ -37,7 +39,16 @@ def main():
 				content += '\n{% endhighlight %}\n'
 			if hasCode:
 				outputPostMD(content, title)
-			
+
+def preprocess(content):
+	pattern = re.compile(r'\$\$.+?\$\$')
+	tokens = re.findall(pattern, content)
+	for s in tokens:
+		replaceS = s[2:-2]
+		replaceS = '<span class="inlinecode">$'+replaceS+'<\span>'
+		content.replace(s, replaceS)
+	return content
+							
 def outputPostMD(content, title):
 	fileName = '2016-09-29-'+title+'.md'
 	fileName = os.path.join(OUTPUT_DIR, fileName)

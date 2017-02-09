@@ -1,0 +1,5 @@
+This is a **Transitive Closure** problem.  
+The existance of the equation $$a / b = k$$ implies two relations: $$a / b = k$$ and $$b / a = \frac{1}{k}$$. Thus, for any given equation, we can convert its two relations into a directed edge $$(a, b)$$ with weight $$k$$ and a directed edge $$(b, a)$$ with weight $$\frac{1}{k}$$. Therefore, the answer for query `[m, n]` is equivalent to the product of weights along the path from vertex `m` to vertext `n`.  
+Note that the edge weight for $$(v, v)$$ is 1 and if two vertices are not reachable to each other, either because they are **disconnected** (i.e. lying in two connected part of $$G$$) or simply because either one of them $$\notin G$$, the cost is -1.  
+Use [Floyd-Warshall's algorithm](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm) to find the path and product.  
+Time Complexity: $$O(n^3)$$ where $$n$$ is the total number of variables appeared in equations.

@@ -13,18 +13,31 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Franco's Geeky Stuff
+title: Franco's Studio
 email: tyge318@gmail.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://tyge318.github.io" # the base hostname & protocol for your site
 
 # Build settings
-markdown: kramdown
-kramdown:
-  input: GFM
-  highlighter: rouge
+#markdown: kramdown
+#kramdown:
+#  input: GFM
+#  hard_wrap: false
+#  highlighter: pygments
+
+markdown: redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "strikethrough", "superscript", "with_toc_data"]
+highlighter: pygments
+
+#markdown: Pandoc
+#pandoc:
+#  extensions:
+#    - mathjax
+
 theme: minima
 include: ["_pages"]
 permalink: /:title/
 gems:
   - jekyll-gist
+#  - jekyll-pandoc    
