@@ -3,4 +3,4 @@ Now the first question is: When can we saftely remove a precedding letter? If we
 The second question is: How to have an efficient trace on the precedding letter in the result string? The data structure we are looking for is **stack**.  
 For each letter in string `s`, loop through the letter on the stack top; pop from the stack if `stack.peek() > current_letter` and the removal of `stack.peek()` will not reulst in **letter miss**.  
 (In Java, we can just use `StringBuilder` to simulate a stack: append() as stack push, deleteCharAt() as stack pop, etc.)  
-Time Complexity: <span class="inlinecode">$O(n)$</span>
+Time Complexity: $$O(n)$$

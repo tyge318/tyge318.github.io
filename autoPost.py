@@ -45,8 +45,9 @@ def preprocess(content):
 	tokens = re.findall(pattern, content)
 	for s in tokens:
 		replaceS = s[2:-2]
-		replaceS = '<span class="inlinecode">$'+replaceS+'<\span>'
-		content.replace(s, replaceS)
+		replaceS = '<span class="inlinecode">$'+replaceS+'$</span>'
+		print 'Replace \"' + s + '\" with \"' + replaceS + '\"...'
+		content = content.replace(s, replaceS)
 	return content
 							
 def outputPostMD(content, title):
