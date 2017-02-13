@@ -12,6 +12,10 @@ In fact they are tools for different purposes, though overlap partially. For tho
 As an NLP and Machine Learning guy, probably one thing excites me the most is the fact that Spark not only supports common programming languages such as Java, Python and Scala, it also comes with a bunch of built-in machine learning packages. You can directly call those ML algorithms! How cool and convenient!!  
 In this post, I'm going to share how I use Spark and python (the PySpark) to do a simple sentiment classification task.  
 Note: This post doesn't cover how to setup Apache Spark on your computer. Please google it and you can find rich results on it; or check out [this](https://www.tutorialspoint.com/apache_spark/apache_spark_installation.htm).  
+<p align="center">The Execution Result
+![Execution Result](/images/PySparkClassification/Execution_result.png)</p>
+You can see the Fscore got 0.86 for the truthful/deceptive and 0.93 for positive/negative classification tasks.  
+
 ### Step 1. Data Preparation
 Download [this archived file](../Data/SentimentCLData.zip).  
 The following diagram shows the data folder structure.   
