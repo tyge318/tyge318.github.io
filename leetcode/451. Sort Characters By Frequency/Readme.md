@@ -1,0 +1,3 @@
+First, use a map to trace the frequency of each character. (HashMap in Java, unordered map in C++ for O(1) lookup.) Convert the entry set of the map to a list and sort by frequency in descending order with a custom comparator.  
+Use either StringBuilder (Java) or mutable String (C++) to rebuild the desired string: Iterate through this list, append each character according to its frequency.  
+Time Complexity: $$O(n\log n)$$ for sorting.
